@@ -1,17 +1,18 @@
 $(document).ready(onReady)
 
 function onReady() {
-    console.log('Jacob is great!');
-    setupMode();
-    $('#STARTGAME').on('click'){
+    setupGame();
+    $('#startGame').on('click', function(){
         // hide the html from setupMode
-        // run gamePlay
-    }
-
-}
+        // run gamePlayMode
+        $('.setupMode').hide();
+        $('.playMode').show();
+        playGame();
+    });
+} // end onReady
 
 // setupMode() handles all the client side JS 
-function setupMode() {
+function setupGame() {
     // when we click #btn-max, call addNumber
     $('#btn-max').on('click', function () {
         addNumber();
@@ -47,5 +48,9 @@ function setupMode() {
     function clearInputForm() {
         $('#numberGuessMax').val('');
     }
+} // end setupMode
+
+function playGame(){
+
 }
 
