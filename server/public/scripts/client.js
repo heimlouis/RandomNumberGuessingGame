@@ -20,6 +20,7 @@ function onReady() {
         // pull in all guesses
 
         playGame();
+
         guessCheck ();
      });
 
@@ -96,10 +97,14 @@ function guessCheck () {
         type: 'GET',
         url:'/game',
     }).done (function (response) {
-        $('.playMode').append(
-            `<p>${response}</p>`
-        ).fail(function (response) {
-            console.log(response);
-        })
+        $('#output').empty();
+        $('#output').append(`<ol><li>Player One: ${response[response.length-1][0]}</li>
+        <li>Player Two: ${response[response.length-1][1]}</li>
+        <li>Player Three: ${response[response.length-1][2]}</li>
+        <li>Player Four: ${response[response.length-1][3]}</li></ol>`);
+        console.log(response[response.length-1]);
+        console.log(response);
+    }).fail(function (response) {
+        console.log(response);
     });
 }

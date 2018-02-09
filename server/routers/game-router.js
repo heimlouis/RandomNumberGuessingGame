@@ -6,23 +6,22 @@ const Random = require('../modules/checkGuessMod');
 const Check = require('../modules/gameCountMod');
 const truthArray = [];
 
-
+// post maximum range
 router.post('/add',function(request,response){
     //gets input max number from DOM in object
     let maxInfo = request.body.number;
-    console.log('Maximum: ' + maxInfo.max);
     let exampleRandomNumber = new Random(1, maxInfo.max)
-    console.log('Random Number: '+exampleRandomNumber.generateRandom());
+    //console.log('Random Number: '+exampleRandomNumber.generateRandom());
     const randomNumber = exampleRandomNumber.generateRandom();
+    console.log('Random Number: '+randomNumber);
+    
     console.log(randomNumber);
-    truthArray.push(randomNumber);
+    truthArray.push(randomNumber); // push one random number 
     
-    
-    //console.log( setupInfo.generateRandom(0, maxInfo.max));
     response.sendStatus(200);
-
 })
 
+// post player guesses
 router.post('/play',function(request,response){
     //gets input max number from DOM in object
     let guesses = request.body.guesses;
@@ -36,6 +35,7 @@ router.post('/play',function(request,response){
 
 router.get('/', function (req, res) {
     res.send(truthArray);
+
     console.log(truthArray);
 })
 

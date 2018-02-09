@@ -16,14 +16,17 @@ class GuessChecker {
         let truth = this.truth;
         let guessesArray = [guess1, guess2, guess3, guess4];
         let resultsArray = [];
-        for(let i = 0; i < guessesArray.length; i++){
+        for(var i = 0; i < guessesArray.length; i++){
             //let truthArray = [];
             if(guessesArray[i] > truth){
-                resultsArray.push(guessesArray[i] + ' was too high');
+                let result = 'guessed too high';
+                resultsArray.push(result);
             } else if (guessesArray[i] < truth){
-                resultsArray.push(guessesArray[i] + ' was too low');
+                let result = 'guessed too low';
+                resultsArray.push(result);
             } else {
-                resultsArray.push(guessesArray[i] + ' was right!  YOU WIN!')
+                let result = 'CORRECT';
+                resultsArray.push(result);
             }
         }
         return resultsArray;
