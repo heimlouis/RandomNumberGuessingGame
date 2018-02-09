@@ -85,6 +85,7 @@ function playGame(){
         data: { guesses: getPlayerGuess () }
     }).done(function (response) {
         console.log('added');
+        clearGuessInput();
         //we may need to perform other functions but not yet
     }).fail(function (error) {
         console.log(error);
@@ -107,4 +108,13 @@ function guessCheck () {
     }).fail(function (response) {
         console.log(response);
     });
+
 }
+
+function clearGuessInput(){
+    $('#playerOneGuess').val('');
+    $('#playerTwoGuess').val('');
+    $('#playerThreeGuess').val('');
+    $('#playerFourGuess').val('');
+}
+
