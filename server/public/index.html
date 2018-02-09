@@ -11,10 +11,30 @@
 </head>
 <body>
     Random Number Guess
-<h2>Setup mode!</h2>
-<div>
-    <input type="number" id="numberGuessMax"><label for="numberGuessMax">Enter Maximum Number</label>
-    <button id="btn-max">Submit Max Number!</button>
-</div>
+
+    <div class="setupMode">
+        <h1>Setup mode!</h1>
+        <input type="number" id="numberGuessMax"><label for="numberGuessMax">Enter Maximum Number</label>
+        <button id="btn-max">Set Maximum Number</button><br>
+        <button id="startGame">PLAY!</button>
+    </div>
+
+    <div class="playMode">
+        <h1>Let's play a game?</h1>
+        <label>Player One</label><input id="playerOneGuess" type="number" placeholder="Enter Guess">
+        <label id="p1HighLow">SampleGuess</label> 
+        <br>
+        <label>Player Two</label><input id="playerTwoGuess" type="number" placeholder="Enter Guess">
+        <label id="p2HighLow">SampleGuess</label> 
+        <br>
+        <label>Player Three</label><input id="playerThreeGuess" type="number" placeholder="Enter Guess">
+        <label id="p3HighLow">SampleGuess</label> 
+        <br>
+        <label>Player Four</label><input id="playerFourGuess" type="number" placeholder="Enter Guess">
+        <label id="p4HighLow">SampleGuess</label>
+        <br>
+        <button class="guessSubmission">Submit All the Guesses!</button><br>
+        <button id="cancelGame">Cancel</button>
+    </div>
 </body>
 </html>

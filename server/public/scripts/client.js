@@ -2,12 +2,19 @@ $(document).ready(onReady)
 
 function onReady() {
     setupGame();
+    $('.playMode').hide();
     $('#startGame').on('click', function(){
         // hide the html from setupMode
         // run gamePlayMode
         $('.setupMode').hide();
         $('.playMode').show();
         playGame();
+    });
+    $('#cancelGame').on('click', function(){
+       // hide the game mode when cancel is clicked
+       $('.setupMode').show();
+       $('.playMode').hide();
+       setupGame();
     });
 } // end onReady
 
@@ -50,7 +57,19 @@ function setupGame() {
     }
 } // end setupMode
 
-function playGame(){
 
+function playGame(){
+    function getPlayerGuess (){
+        let player1 = $('#playerOneGuess').val();
+        let player2 = $('#playerTwoGuess').val();
+        let player3 = $('#playerThreeGuess').val();
+        let player4 = $('#playerFourGuess').val();
+    }
+    return {
+        guess1: player1,
+        guess2: player2,
+        guess3: player3,
+        guess4: player4
+    };
 }
 
