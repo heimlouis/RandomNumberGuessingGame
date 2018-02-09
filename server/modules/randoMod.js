@@ -6,7 +6,8 @@ class Random{
 
 //random nunber function
     generateRandom(){
-        return Math.floor(Math.random() * (1 + this.max - this.min) + this.min);
+        //return Math.floor(Math.random() * (1 + this.max - this.min) + this.min);
+        return Math.floor(Math.random() * this.max) + this.min;
     }
 }
 

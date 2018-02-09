@@ -16,6 +16,13 @@ function onReady() {
        $('.playMode').hide();
        setupGame();
     });
+    $('.guessSubmission').on('click', function(){
+        // pull in all guesses
+
+        playGame();
+        guessCheck ();
+     });
+
 } // end onReady
 
 // setupMode() handles all the client side JS 
@@ -60,16 +67,39 @@ function setupGame() {
 
 function playGame(){
     function getPlayerGuess (){
-        let player1 = $('#playerOneGuess').val();
-        let player2 = $('#playerTwoGuess').val();
-        let player3 = $('#playerThreeGuess').val();
-        let player4 = $('#playerFourGuess').val();
-    }
-    return {
-        guess1: player1,
-        guess2: player2,
-        guess3: player3,
-        guess4: player4
-    };
+        let guess1 = $('#playerOneGuess').val();
+        let guess2 = $('#playerTwoGuess').val();
+        let guess3 = $('#playerThreeGuess').val();
+        let guess4 = $('#playerFourGuess').val();
+        return {
+            player1: guess1,
+            player2: guess2,
+            player3: guess3,
+            player4: guess4
+        } 
+    } // end getPlayerGuess
+    $.ajax({
+        type: 'POST',
+        url: '/game/play',
+        data: { guesses: getPlayerGuess () }
+    }).done(function (response) {
+        console.log('added');
+        //we may need to perform other functions but not yet
+    }).fail(function (error) {
+        console.log(error);
+    })
+
 }
 
+function guessCheck () {
+    $.ajax({
+        type: 'GET',
+        url:'/game',
+    }).done (function (response) {
+        $('.playMode').append(
+            `<p>${response}</p>`
+        ).fail(function (response) {
+            console.log(response);
+        })
+    });
+}
