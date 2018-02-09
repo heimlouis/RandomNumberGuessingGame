@@ -25,7 +25,7 @@ class GuessChecker {
                 let result = 'guessed too low';
                 resultsArray.push(result);
             } else {
-                let result = 'CORRECT';
+                let result = 'CORRECT!!!!';
                 resultsArray.push(result);
             }
         }

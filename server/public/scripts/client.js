@@ -54,6 +54,7 @@ function setupGame() {
 
     function getRangeMax() {
         let maxRange = $('#numberGuessMax').val();
+        $('.maxNumber').append(`<h4>Max Number: ${maxRange}`);
         let rangeObject = {
             max: maxRange
         };
@@ -117,4 +118,3 @@ function clearGuessInput(){
     $('#playerThreeGuess').val('');
     $('#playerFourGuess').val('');
 }
-
